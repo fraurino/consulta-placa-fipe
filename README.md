@@ -11,6 +11,11 @@ Maiores informações da API, acesse https://apigratis.com.br/
 <br>
 <h2>Demo em Delphi</h2>
 
+
+Requisitos:<br>
+Lazarus: Indy; <br>
+Delphi : TRest;
+
 ![image](https://user-images.githubusercontent.com/26030963/207496011-042366c2-8dcb-4a80-a294-1c98bf46c057.png)
 <br><br><br>
 <h2>Demo em Lazarus</h2>
