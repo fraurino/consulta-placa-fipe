@@ -1,19 +1,12 @@
 unit uMain;
-
 {$mode objfpc}{$H+}
-
 interface
-
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, shellapi,
-  TypInfo, Buttons, ComCtrls, ExtCtrls, DBGrids, fpjson,
-  jsonparser, IdHTTP, IdSSLOpenSSL, IdStack, IdStackConsts, DateUtils,
-  BufDataset ;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, shellapi,TypInfo, Buttons, ComCtrls, ExtCtrls, DBGrids, fpjson,
+  jsonparser, IdHTTP, IdSSLOpenSSL, IdStack, IdStackConsts, DateUtils, BufDataset ;
 
 type
-
   { TfrMain }
-
   TfrMain = class(TForm)
     Ano: TLabeledEdit;
     btnConsultar: TButton;
@@ -38,7 +31,6 @@ type
     procedure cleanedit ;
   public
   end;
-
 var
   frMain: TfrMain;
 
@@ -52,7 +44,6 @@ begin
   ShellExecute(Handle, 'open', 'https://github.com/fraurino', '', '', 1);
   ShellExecute(Handle, 'open', 'https://apigratis.com.br', '', '', 1);
 end;
-
 procedure TfrMain.cbbServicoChange(Sender: TObject);
 begin
    case cbbservico.ItemIndex of
@@ -61,7 +52,6 @@ begin
     end;
     update;
 end;
-
 procedure TfrMain.btnConsultarClick(Sender: TObject);
 const
   _notfound : string = 'Placa não encontrada na base.';
@@ -86,7 +76,6 @@ begin
 
     addlog('conectando ao servico');
 
-
     httpclient := TidHTTP.Create;
     idssl := TIdSSLIOHandlerSocketOpenSSL.Create;
     httpclient.IOHandler := idssl;
@@ -99,24 +88,18 @@ begin
     httpclient.Request.CustomHeaders.FoldLines := False;
     if token.text =''then
     begin
-     RequestBody := TStringStream.Create('{"placa":"'+edtPlaca.text+'"}', TEncoding.UTF8); //deu certo
-     //httpclient.Request.CustomHeaders.AddValue('placa', edtPlaca.text);
+     RequestBody := TStringStream.Create('{"placa":"'+edtPlaca.text+'"}', TEncoding.UTF8); 
     end;
-
     if token.text <> ''then
     begin
-     RequestBody := TStringStream.Create('{"placa":"'+edtPlaca.text+'"}', TEncoding.UTF8); //deu certo
-     //HttpClient.Request.CustomHeaders.Values['placa'] := edtPlaca.text ;
+     RequestBody := TStringStream.Create('{"placa":"'+edtPlaca.text+'"}', TEncoding.UTF8);
      HttpClient.Request.CustomHeaders.Values['chave'] := token.text ;
     end;
-
     Response := TStringStream.Create('');
     Response.Position := 0;
     try
-
       httpclient.post   ( url, RequestBody, response);
       json := GetJSON(UTF8ToString(Response.DataString));
-
       if httpclient.ResponseCode = 429 then
       begin
        addlog('aguarde 60 segundos para próxima consulta');
@@ -125,8 +108,6 @@ begin
       if httpclient.ResponseCode = 200 then
       begin
          addlog( 'json response: '+ #10#13+ json.FormatJSON() );
-
-
          if token.text ='' then
          begin
           Marca.text       := json.GetPath('Marca').Value;
@@ -137,14 +118,12 @@ begin
           modelo.text      := copy(json.GetPath('Modelo').Value, 6,9);
           chassi.Text      := json.GetPath('chassi').Value;
          end;
-
          if json.getpath('message').value <> _notfound then
          begin
            if token.Text <>'' then
            begin
              Marca.text       := json.GetPath('MARCA').Value;
              municipio.text   := json.GetPath('municipio').Value +'/'+json.GetPath('uf').Value ;
-
              extra := TJSONObject(json.GetPath('extra'));
              if extra.GetPath('chassi') <> nil then
              begin
@@ -154,9 +133,7 @@ begin
              end ;
            end;
          end;
-
       end;
-
     except on E: EIdSocketError do
       begin
         case e.LastError of
@@ -191,23 +168,19 @@ begin
     update;
   end;
 end;
-
-
 procedure TfrMain.cbbServicoChangeBounds(Sender: TObject);
 begin
    case cbbservico.ItemIndex of
      0 : token.clear;
-     1 : token.Text :='chavedemo';
+     1 : token.Text :='chavedemo'; //chame apenas para teste. contrate o token para uso em produção. https://apigratis.com.br
     end;
     update;
 end;
-
 procedure TfrMain.addlog(value: string);
 begin
-  log.Lines.Add(FormatDateTime('ddmmyyyy hhmmss', now)+ '|'+value);
+  log.Lines.Add(FormatDateTime('dd-mm-yyyy hh.mm.ss-zzz', now)+ '|'+value);
   update;
 end;
-
 procedure TfrMain.cleanedit;
 begin
    Marca.clear;
