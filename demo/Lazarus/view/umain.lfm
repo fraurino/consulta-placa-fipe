@@ -1,0 +1,194 @@
+object frMain: TfrMain
+  Left = 465
+  Height = 439
+  Top = 127
+  Width = 493
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Consulta Placa por API'
+  ClientHeight = 439
+  ClientWidth = 493
+  LCLVersion = '2.0.12.0'
+  object Label1: TLabel
+    Left = 8
+    Height = 15
+    Top = 19
+    Width = 102
+    Caption = 'Serviço da consulta'
+    ParentColor = False
+  end
+  object Label2: TLabel
+    Cursor = crHandPoint
+    Left = 0
+    Height = 13
+    Top = 426
+    Width = 493
+    Align = alBottom
+    Alignment = taCenter
+    Caption = 'Desenvolvido por Francisco Aurino | API fornecida por https://apigratis.com.br'
+    Font.Color = clNavy
+    Font.Height = -11
+    Font.Name = 'Tahoma'
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+    OnClick = Label2Click
+  end
+  object edtPlaca: TLabeledEdit
+    Left = 196
+    Height = 23
+    Top = 38
+    Width = 121
+    EditLabel.Height = 15
+    EditLabel.Width = 121
+    EditLabel.Caption = 'Placa do Veículo'
+    EditLabel.ParentColor = False
+    TabOrder = 0
+    Text = 'FMR7534'
+    TextHint = 'digite a placa'
+  end
+  object log: TMemo
+    Left = 196
+    Height = 297
+    Top = 104
+    Width = 283
+    ScrollBars = ssVertical
+    TabOrder = 1
+  end
+  object cbbServico: TComboBox
+    Cursor = crHandPoint
+    Left = 8
+    Height = 23
+    Top = 38
+    Width = 182
+    ItemHeight = 15
+    ItemIndex = 0
+    Items.Strings = (
+      'Placa - FIPE'
+      'Placa - Dados'
+    )
+    OnChange = cbbServicoChange
+    OnChangeBounds = cbbServicoChangeBounds
+    Style = csDropDownList
+    TabOrder = 2
+    Text = 'Placa - FIPE'
+  end
+  object btnConsultar: TButton
+    Cursor = crHandPoint
+    Left = 196
+    Height = 25
+    Top = 65
+    Width = 283
+    Caption = 'Consultar Placa'
+    OnClick = btnConsultarClick
+    TabOrder = 3
+  end
+  object Marca: TLabeledEdit
+    Left = 10
+    Height = 24
+    Top = 80
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Marca'
+    EditLabel.ParentColor = False
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    ParentFont = False
+    TabOrder = 4
+    TabStop = False
+  end
+  object Municipio: TLabeledEdit
+    Left = 10
+    Height = 24
+    Top = 128
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Municipio'
+    EditLabel.ParentColor = False
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    ParentFont = False
+    TabOrder = 5
+    TabStop = False
+  end
+  object Renavam: TLabeledEdit
+    Left = 10
+    Height = 24
+    Top = 171
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Renavam'
+    EditLabel.ParentColor = False
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Tahoma'
+    ParentFont = False
+    TabOrder = 6
+    TabStop = False
+  end
+  object Ano: TLabeledEdit
+    Left = 10
+    Height = 23
+    Top = 216
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Ano'
+    EditLabel.ParentColor = False
+    TabOrder = 7
+    TabStop = False
+  end
+  object Modelo: TLabeledEdit
+    Left = 10
+    Height = 23
+    Top = 256
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Modelo'
+    EditLabel.ParentColor = False
+    TabOrder = 8
+    TabStop = False
+  end
+  object Chassi: TLabeledEdit
+    Left = 10
+    Height = 23
+    Top = 296
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Chassi'
+    EditLabel.ParentColor = False
+    TabOrder = 9
+    TabStop = False
+  end
+  object Token: TLabeledEdit
+    Left = 323
+    Height = 23
+    Top = 38
+    Width = 156
+    EditLabel.Height = 15
+    EditLabel.Width = 156
+    EditLabel.Caption = 'Token'
+    EditLabel.ParentColor = False
+    TabOrder = 10
+    TextHint = 'use chavedemo'
+  end
+  object CodigoFipe: TLabeledEdit
+    Left = 8
+    Height = 23
+    Top = 344
+    Width = 180
+    EditLabel.Height = 15
+    EditLabel.Width = 180
+    EditLabel.Caption = 'Codigo Fipe'
+    EditLabel.ParentColor = False
+    TabOrder = 11
+    TabStop = False
+  end
+end
