@@ -9,6 +9,41 @@ Maiores informações da API, acesse https://apigratis.com.br/
 <b>Lazarus 2.2.4 by FPC 3.2.2:</b> https://www.lazarus-ide.org/index.php?page=downloads <Br>
 <b>Delphi Community Edition:</b> https://www.embarcadero.com/br/products/delphi/starter/free-download
 
+<h2>Demo code em VSCode | CSharp</h2>
+
+```var client = new HttpClient();
+var request = new HttpRequestMessage();
+request.RequestUri = new Uri("https://placa-fipe.apibrasil.com.br/placa/consulta");
+request.Method = HttpMethod.Post;
+request.Headers.Add("Accept", "*/*");
+request.Headers.Add("User-Agent", "Thunder Client (https://www.thunderclient.com)");
+var bodyString = "{\"placa\":\"FMR7534\"}\r";
+var content = new StringContent(bodyString, Encoding.UTF8, "application/json");
+request.Content = content;
+var response = await client.SendAsync(request);
+var result = await response.Content.ReadAsStringAsync();
+if (response.IsSuccessStatusCode)
+{
+    fipe veiculo = new fipe();
+    log.AppendText(DateTime.Now.ToString() + "| placa encontrada. \n\r");
+    var FipeJsonString = await response.Content.ReadAsStringAsync();
+    veiculo = JsonConvert.DeserializeObject<fipe>(FipeJsonString);
+    Marca.Text     = veiculo.Marca;
+    Municipio.Text = veiculo.municipio;
+    Renavam.Text   = veiculo.renavam;]
+    Chassi.text    = veiculo.chassi;
+    Ano.Text       = veiculo.ano;
+    Modelo.Text    = veiculo.modelo;
+    //--add demais registros;
+}
+else
+{   
+   log.AppendText(DateTime.Now.ToString() + "| placa não encontrada. \n\r"); 
+}
+```
+
+
+
 <br>
 <h2>Demo em Delphi</h2>
 <b>consulta FIPE e consulta Dados</b><Br>
