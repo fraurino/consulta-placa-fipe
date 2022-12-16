@@ -7,9 +7,10 @@ Maiores informações da API, acesse https://apigratis.com.br/
 <h2>Download IDE</h2>
 
 <b>Lazarus 2.2.4 by FPC 3.2.2:</b> https://www.lazarus-ide.org/index.php?page=downloads <Br>
-<b>Delphi Community Edition:</b> https://www.embarcadero.com/br/products/delphi/starter/free-download
-
-<h2>Demo code em VSCode | CSharp</h2>
+<b>Delphi Community Edition:</b> https://www.embarcadero.com/br/products/delphi/starter/free-download<Br>
+<b>Visual Studio Code:</b> https://code.visualstudio.com/download<Br>
+<b>Visual Studio 2022 Comunidade:</b> https://visualstudio.microsoft.com/pt-br/downloads/<Br>
+<h2>Example code em VSCode | CSharp</h2>
 
 ```var client = new HttpClient();
 var request = new HttpRequestMessage();
@@ -42,8 +43,6 @@ else
 }
 ```
 
-
-
 <br>
 <h2>Demo em Delphi</h2>
 <b>consulta FIPE e consulta Dados</b><Br>
@@ -62,3 +61,6 @@ else
 Requisitos:<br>
 Lazarus: Indy; <br>
 Delphi : TRest;
+
+*dados retornados e plataforma apigratis.com.br, responsabilidade da api do serviço pelo seu idealizador e proprietário,
+porém apenas utilizado neste exemplo de consulta usando Rest e Indy.
