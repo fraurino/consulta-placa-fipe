@@ -6,7 +6,7 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, MaskUtils, ShellApi, IdHTTP, IdSSLOpenSSL, System.JSON,
   StrUtils, IdIOHandler, IdIOHandlerSocket, IdIOHandlerStack, IdSSL, IdStack, IdStackConsts,
-  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, Vcl.StdCtrls,   WinInet,
+  IdBaseComponent, IdComponent, IdTCPConnection, IdTCPClient, Vcl.StdCtrls,   WinInet, IpPeerClient ,
   Vcl.Buttons, Vcl.ExtCtrls, Data.DB , ToolWin , Vcl.Grids, Vcl.DBGrids, Vcl.ComCtrls,
   IdServerIOHandler, REST.Types, Data.Bind.Components, Data.Bind.ObjectScope,
   REST.Client, REST.Authenticator.Basic;
